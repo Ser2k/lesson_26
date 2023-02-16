@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.css">
+</head>
+
+<body>
+    <div class="container py-3">
+        <div class="mb-3">
+            <button class="btn btn-primary btn-lg" id="btn0" value="02">01</button>
+            <button class="btn btn-primary btn-lg" id="btn1">1</button>
+            <button class="btn btn-primary btn-lg">2</button>
+            <button class="btn btn-primary btn-lg">3</button>
+            <button class="btn btn-primary btn-lg">4</button>
+            <button class="btn btn-primary btn-lg">5</button>
+            <button class="btn btn-secondary btn-lg" id="btnClear">Clear</button>
+        </div>
+        <div id="screen"></div>
+    </div>
+
+
+    <script>
+        let btn0 = document.getElementById('btn0');
+        let btn1 = document.getElementById('btn1');
+        let btnClear = document.getElementById('btnClear');
+        let screen = document.getElementById('screen');
+
+        screen.classList.add('text-bg-warning');
+        screen.classList.add('p-2');
+
+        btn0.addEventListener('click', function() {
+            screen.innerHTML += '<b>1</b>';
+            console.log(this.textContent);
+            console.log(this.value);
+        });
+
+        btnClear.addEventListener('click', function() {
+            screen.innerHTML = '';
+        });
+
+        btn1.addEventListener('mouseenter', function() {
+            this.textContent = +this.textContent + 1;
+            if (parseInt(this.textContent) > 5) {
+                this.remove();
+                // this.classList.add('btn-danger');
+                // this.classList.remove('btn-primary');
+            }
+        });
+
+        // btn0.classList.remove('btn-primary');
+        // btn0.classList.add('btn-success');
+        // console.log(btn0.classList);
+        // console.log(btn0.className);
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
